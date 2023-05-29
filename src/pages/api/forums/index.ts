@@ -1,8 +1,8 @@
-import { NextApiRequest, NextApiResponse } from "next"
+import { IncomingMessage, ServerResponse } from "http"
 
 export const runtime = 'edge';
 
-export default function handler(_: NextApiRequest, res: NextApiResponse) {
+export default function handler(_: IncomingMessage, res: ServerResponse) {
   const forums = [
     { id: 1, name: 'TEST-1' },
     { id: 2, name: 'TEST-2' },
@@ -10,5 +10,14 @@ export default function handler(_: NextApiRequest, res: NextApiResponse) {
     { id: 4, name: 'TEST-4' },
     { id: 5, name: 'TEST-5' },
   ]
-  res.status(200).json(forums)
+
+  return new Response(
+    JSON.stringify(forums),
+    {
+      status: 200,
+      headers: {
+        'content-type': 'application/json'
+      }
+    }
+  )
 }
