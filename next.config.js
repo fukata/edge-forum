@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['tsx', 'ts'],
-  experimental: {
-    runtime: 'edge'
-  }
+  pageExtensions: ['tsx', 'ts']
 }
 
 module.exports = nextConfig

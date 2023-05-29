@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next"
 
+export const runtime = 'edge';
+
 export default function handler(_: NextApiRequest, res: NextApiResponse) {
   const forums = [
     { id: 1, name: 'TEST-1' },
